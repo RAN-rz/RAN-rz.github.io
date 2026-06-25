@@ -1,0 +1,31 @@
+---
+layout: default
+---
+
+<article class="post-full">
+  <header class="post-header">
+    <div class="post-meta">
+      <span class="post-date">{{ page.date | date: "%-d %b %Y" }}</span>
+      <span class="post-tag tag-{{ page.category }}">
+        {% case page.category %}
+          {% when 'tech' %}Tech
+          {% when 'photo' %}Photography
+          {% when 'essay' %}Essay
+          {% when 'note' %}Note
+        {% endcase %}
+      </span>
+    </div>
+    <h1 class="post-title-full">{{ page.title }}</h1>
+    {% if page.excerpt_custom %}
+    <p class="post-subtitle">{{ page.excerpt_custom }}</p>
+    {% endif %}
+  </header>
+
+  <div class="post-body">
+    {{ content }}
+  </div>
+
+  <footer class="post-footer">
+    <a href="{{ '/' | relative_url }}" class="back-link">← All posts</a>
+  </footer>
+</article>
